@@ -1,0 +1,24 @@
+name: Install Ratchet
+
+on:
+  push:
+    branches: [main]  # Or your default branch
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install Composer Dependencies
+      run: composer require cboden/ratchet
+
+    - name: Archive Ratchet Library
+      run: zip -r ratchet.zip vendor/cboden/ratchet
+
+    - name: Upload Ratchet Library Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: ratchet
+        path: ratchet.zip
