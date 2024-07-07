@@ -2,7 +2,7 @@ name: Install Ratchet
 
 on:
   push:
-    branches: [main]  # Or your default branch
+    branches: [main]
 
 jobs:
   install:
